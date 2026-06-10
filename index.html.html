@@ -662,10 +662,18 @@ canvas.addEventListener('click', (e) => {
       objects.push({ type:'decoherence', x:x, y:y, r:60 });
       coins += 5; updateCurrency(); break;
     case 'teleporter':
-     const partner = objects.find(
-  o => o.type==='teleporter' &&
-       o.id===it.id &&
-       o!==it
+     case 'teleporter':
+  objects.push({
+    type: 'teleporter',
+    x: x,
+    y: y,
+    r: 30,
+    id: 1
+  });
+
+  coins += 5;
+  updateCurrency();
+  break;
 );
   }
 

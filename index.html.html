@@ -662,7 +662,6 @@ canvas.addEventListener('click', (e) => {
       objects.push({ type:'decoherence', x:x, y:y, r:60 });
       coins += 5; updateCurrency(); break;
     case 'teleporter':
-     case 'teleporter':
   objects.push({
     type: 'teleporter',
     x: x,
@@ -674,8 +673,8 @@ canvas.addEventListener('click', (e) => {
   coins += 5;
   updateCurrency();
   break;
-);
   }
+});
 
 // extend step
 const oldStep = step;

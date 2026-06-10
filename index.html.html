@@ -662,11 +662,26 @@ canvas.addEventListener('click', (e) => {
       objects.push({ type:'decoherence', x:x, y:y, r:60 });
       coins += 5; updateCurrency(); break;
     case 'teleporter':
-      const id = Math.floor(Math.random()*1000);
-      objects.push({ type:'teleporter', x:x, y:y, r:30, id });
-      coins += 5; updateCurrency(); break;
+      case 'teleporter':
+  if (pendingTeleporter === null) {
+    pendingTeleporter = Date.now();
   }
-});
+
+  objects.push({
+    type: 'teleporter',
+    x: x,
+    y: y,
+    r: 30,
+    id: pendingTeleporter
+  });
+
+  const count = objects.filter(
+    o => o.type === 'teleporter' && o.id === pendingTeleporter
+  ).length;
+
+  if (count >= 2) {
+    pendingTeleporter = null;
+  }
 
 // extend step
 const oldStep = step;

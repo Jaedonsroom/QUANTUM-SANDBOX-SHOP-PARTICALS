@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="google-site-verification" content="uSiPwX6lUnT2V5uTSDKRClnP1Jnx92ll3Pc6zQtqE1w" />
+<head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3618245718570877"
      crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
@@ -100,6 +100,8 @@
   let paused = false;
   let observe = false; // if true, detectors collapse paths (kills interference)
   const coinDrops = [];
+  let teleporterPairId = 1;
+  let pendingTeleporter = null;
 
   // UI helpers
   const $ = (id) => document.getElementById(id);
@@ -247,7 +249,8 @@
           passedSlit: false,
           passedWhich: null, // 'top'/'bot'/null
           phase,
-          life: 8 // seconds cap
+          life: 8, // seconds cap
+          teleportCooldown: 0
         });
       }
     }
@@ -292,10 +295,19 @@
     }
 
     // move particles
-    for (let i = particles.length - 1; i >= 0; i--) {
-      const p = particles[i];
-      p.life -= dt;
-      if (p.life <= 0) { particles.splice(i,1); continue; }
+for (let i = particles.length - 1; i >= 0; i--) {
+  const p = particles[i];
+
+  p.life -= dt;
+
+  if (p.teleportCooldown > 0) {
+    p.teleportCooldown -= dt;
+  }
+
+  if (p.life <= 0) {
+    particles.splice(i,1);
+    continue;
+  }
 
       // slight diffusion jitter
       const j = 0.2;
@@ -662,13 +674,32 @@ canvas.addEventListener('click', (e) => {
       objects.push({ type:'decoherence', x:x, y:y, r:60 });
       coins += 5; updateCurrency(); break;
     case 'teleporter':
-  objects.push({
-    type: 'teleporter',
-    x: x,
-    y: y,
-    r: 30,
-    id: 1
-  });
+
+  if (pendingTeleporter === null) {
+
+    objects.push({
+      type: 'teleporter',
+      x: x,
+      y: y,
+      r: 30,
+      pairId: teleporterPairId
+    });
+
+    pendingTeleporter = teleporterPairId;
+
+  } else {
+
+    objects.push({
+      type: 'teleporter',
+      x: x,
+      y: y,
+      r: 30,
+      pairId: pendingTeleporter
+    });
+
+    pendingTeleporter = null;
+    teleporterPairId++;
+  }
 
   coins += 5;
   updateCurrency();
@@ -712,10 +743,21 @@ step = function(dt) {
         }
       }
       if (it.type === 'teleporter') {
-        const dx=p.x-it.x, dy=p.y-it.y;
-        if (dx*dx+dy*dy < it.r*it.r) {
-          const partner=objects.find(o=>o.type==='teleporter'&&o.id===it.id&&o!==it);
-          if (partner) { p.x=partner.x; p.y=partner.y; }
+        const dx = p.x - it.x;
+        const dy = p.y - it.y;
+
+        if (dx*dx + dy*dy < it.r*it.r) {
+          if ((p.teleportCooldown || 0) <= 0)  {
+            p.teleportCooldown -= dt;
+            const partner = objects.find(
+              o => o.type === 'teleporter' && o.pairId === it.pairId && o !== it
+            );
+            if (partner) {
+              p.x = partner.x;
+              p.y = partner.y;
+              p.teleportCooldown = 0.5;
+            }
+          }
         }
       }
     }
@@ -888,4 +930,3 @@ draw = function() {
 </script>
 </body>
 </html>
-

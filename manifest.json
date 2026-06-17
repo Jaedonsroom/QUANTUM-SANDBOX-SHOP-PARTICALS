@@ -10,12 +10,13 @@
   "theme_color": "#7b00ff",
   "dir": "ltr",
   "icons": [
-    {
+   {
       "src": "./icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
+    
     {
       "src": "./icons/icon-192x192-maskable.png",
       "sizes": "192x192",

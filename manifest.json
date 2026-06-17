@@ -11,18 +11,11 @@
   "dir": "ltr",
   "icons": [
    {
-      "src": "/icons/icon-512x512.png",
+      "src": "Screenshot 2026-06-17 150930.png",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "png",
       "purpose": "any"
-    },
-    
-    {
-      "src": "./icons/icon-192x192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
+   }
     {
       "src": "./icons/icon-512x512-maskable.png",
       "sizes": "512x512",

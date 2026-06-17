@@ -3,7 +3,7 @@
   "short_name": "QuantumSandbox",
   "description": "Quantum Sandbox - Shop + Particles",
   "start_url": "./",
-  "scope": "./Wuantum Sandbox",
+  "scope": "./Quantum Sandbox",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#ffffff",

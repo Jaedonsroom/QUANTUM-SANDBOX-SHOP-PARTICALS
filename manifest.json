@@ -1,60 +1,59 @@
 {
   "name": "Quantum Sandbox",
-  "short_name": "Quantum Sandbox",
-  "description": "An interactive quantum particle sandbox where players explore quantum physics concepts through experimentation.",
+  "short_name": "Quantum",
+  "description": "Explore quantum mechanics through an interactive particle sandbox.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "display_override": [
     "window-controls-overlay",
-    "standalone"
+    "standalone",
+    "minimal-ui"
   ],
   "orientation": "landscape",
-  "theme_color": "#000000",
   "background_color": "#000000",
+  "theme_color": "#000000",
   "lang": "en-US",
   "dir": "ltr",
+
   "categories": [
     "education",
-    "games",
-    "science"
+    "science",
+    "games"
   ],
+
   "icons": [
     {
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-1024.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any maskable"
     }
   ],
+
   "screenshots": [
     {
       "src": "/icon-512x512.png",
-      "sizes": "1920x1080",
+      "sizes": "512x512",
       "type": "image/png",
-      "form_factor": "wide",
-      "label": "Quantum Sandbox Desktop"
-    },
-    {
-      "src": "/icon-512x512.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "label": "Quantum Sandbox Mobile"
+      "label": "Quantum Sandbox"
     }
   ],
+
   "shortcuts": [
     {
-      "name": "Play Sandbox",
-      "short_name": "Play",
-      "url": "/"
+      "name": "Launch Quantum Sandbox",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/icon-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
     }
   ],
+
   "prefer_related_applications": false
 }

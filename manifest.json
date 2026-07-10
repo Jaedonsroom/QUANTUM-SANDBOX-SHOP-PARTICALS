@@ -1,6 +1,6 @@
 {
   "name": "Quantum Sandbox",
-  "short_name": "Quantum",
+  "short_name": "Quantum Sandbox",
   "description": "Explore quantum mechanics through an interactive particle sandbox.",
   "id": "/",
   "start_url": "/",

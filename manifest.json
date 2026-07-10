@@ -94,13 +94,6 @@
       "short_name": "Particles",
       "description": "Create particle effects",
       "url": "/particles",
-      "icons": [
-        {
-          "src": "./icons/particles-icon-96x96.png",
-          "sizes": "96x96",
-          "type": "image/png"
-        }
-      ]
     }
   ],
   "prefer_related_applications": false

@@ -15,17 +15,10 @@
   "background_color": "#000000",
   "theme_color": "#000000",
   "lang": "en-US",
-  "dir": "ltr",
-
-  "categories": [
-    "education",
-    "science",
-    "games"
-  ],
 
   "icons": [
     {
-      "src": "icons/icon-512x512.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -34,7 +27,7 @@
 
   "screenshots": [
     {
-      "src": "icons/icon-512x512.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "label": "Quantum Sandbox"
@@ -43,11 +36,12 @@
 
   "shortcuts": [
     {
-      "name": "Launch Quantum Sandbox",
+      "name": "Open Quantum Sandbox",
+      "short_name": "Play",
       "url": "/",
       "icons": [
         {
-          "src": "/icon-512x512.png",
+          "src": "/icons/icon-512x512.png",
           "sizes": "512x512",
           "type": "image/png"
         }

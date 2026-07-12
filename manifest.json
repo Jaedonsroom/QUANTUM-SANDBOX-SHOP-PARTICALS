@@ -4,7 +4,7 @@
   "description": "Explore quantum mechanics through an interactive particle sandbox.",
   "id": "/",
   "start_url": "/",
-  "scope": "/",
+  "scope": "/Quantum Sandbox",
   "display": "standalone",
   "display_override": [
     "window-controls-overlay",
